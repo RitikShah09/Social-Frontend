@@ -4,9 +4,14 @@ import { createContext, useEffect, useState, } from "react";
 
 export const UserContext = createContext({});
 
-
 export default function UserProvider({ children }) {
-  let initialState = null;
+  const [user, setUser] = useState({});
+
+  if (typeof window !== "undefined") {
+    useEffect(() => {
+      localStorage.setItem("UserDetails", JSON.stringify(user));
+    }, [user]);
+  }
   useEffect(() => {
     if (typeof window !== "undefined") {
       const getLocalData = () => {
@@ -17,18 +22,12 @@ export default function UserProvider({ children }) {
           return JSON.parse(userData);
         }
       };
-      initialState = getLocalData();
+      setUser(getLocalData())
     }
   },[])
     
 
-    const [user, setUser] = useState(initialState);
-    
-    if (typeof window !== "undefined") {
-        useEffect(() => {
-          localStorage.setItem("UserDetails", JSON.stringify(user));
-        }, [user]);
-   }
+  
     
      return (
          <UserContext.Provider value={[user, setUser]}>{children}</UserContext.Provider>
