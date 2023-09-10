@@ -6,7 +6,7 @@ export const redirToSignInIfNoToken = () => {
   if (typeof window !== "undefined") {
     const userData = localStorage.getItem("UserDetails");
     const [cookie, setCookie] = useCookies(["token"]);
-    if (!cookie.token || !userData) {
+    if (!cookie.token || userData == null || !userData) {
       return redirect("/login");
     }
   }
