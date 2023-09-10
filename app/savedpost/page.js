@@ -25,7 +25,7 @@ const page = () => {
   }, [images]);
   const handlerSubmit = async () => {
     try {
-      for (let i = 0; i < images.length; i++) {
+      for (let i = 0; i < images?.length; i++) {
         const data = await uploadCloudinary(images[i]);
         const updateData = { Image: data.url };
         console.log(updateData);
@@ -161,20 +161,20 @@ const page = () => {
             </div>
             <div className="flex items-center gap-5 text-white font-medium">
               <h4 className="flex flex-col items-center">
-                <span>{user.posts.length}</span> Posts
+                <span>{user?.posts?.length}</span> Posts
               </h4>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user.follower.length}</span>
+                <span>{user?.follower?.length}</span>
                 Followers
               </div>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user.following.length}</span> Following
+                <span>{user?.following?.length}</span> Following
               </div>
             </div>
           </div>
           <div className="text-white w-2/3 mt-2 sm:flex sm:flex-col hidden ">
-            <div>{user.name}</div>
-            <div className=" max-h-15">{user.bio}</div>
+            <div>{user?.name}</div>
+            <div className=" max-h-15">{user?.bio}</div>
           </div>
           <Link
             href="/edit"
@@ -188,7 +188,7 @@ const page = () => {
           >
             <img
               className="h-full w-full object-cover cursor-pointer"
-              src={user.Image}
+              src={user?.Image}
               alt="Profile"
             />
             <input
@@ -201,7 +201,7 @@ const page = () => {
           </div>
           <div className="flex items-right h-full ml-10 pt-10 gap-3 text-white flex-col justify-center sm:hidden">
             <div className="flex items-center gap-12 sm:hidden">
-              <h3>{user.username}</h3>
+              <h3>{user?.username}</h3>
               <div className="flex items-center gap-4">
                 <Link href="/edit">
                   <button className="px-4 py-1 rounded-lg text-black font-medium border-none bg-gray-200">
@@ -215,19 +215,19 @@ const page = () => {
             </div>
             <div className="flex items-center gap-4 text-white font-medium">
               <h4>
-                <span>{user.posts.length}</span> Posts
+                <span>{user?.posts?.length}</span> Posts
               </h4>
               <h4>
-                <span>{user.follower.length}</span> Followers
+                <span>{user?.follower?.length}</span> Followers
               </h4>
               <h4>
-                <span>{user.following.length}</span> Following
+                <span>{user?.following?.length}</span> Following
               </h4>
             </div>
             <div className=" overflow-hidden h-32 w-44 text-white text-left sm:hidden">
               <span className="font-medium text-base">{user.name}</span>
               <br />
-              <h3 className="text-sm font-thin">{user.bio}</h3>
+              <h3 className="text-sm font-thin">{user?.bio}</h3>
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@ const page = () => {
           </div>
 
           <div className="w-full grid grid-cols-3 gap-[3px] ">
-            {user.savedPost.map((p, i) => {
+            {user?.savedPost?.map((p, i) => {
               return (
                 <div
                   key={i}
@@ -254,7 +254,7 @@ const page = () => {
                 >
                   <img
                     className="h-full w-full object-cover cursor-pointer"
-                    src={p.post}
+                    src={p?.post}
                     alt="Image"
                   />
                 </div>
