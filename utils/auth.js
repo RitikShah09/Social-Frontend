@@ -1,7 +1,7 @@
-'use client';
 import { useCookies } from "react-cookie";
 import { redirect } from "next/navigation";
-export default function redirToSignInIfNoToken() {
+
+export const redirToSignInIfNoToken = () => {
   if (typeof window !== "undefined") {
     const userData = localStorage.getItem("UserDetails");
     const [cookie, setCookie] = useCookies(["token"]);
@@ -9,7 +9,7 @@ export default function redirToSignInIfNoToken() {
       return redirect("/login");
     }
   }
-} 
+};
 
 export const redirectToHome = () => {
   if (typeof window !== "undefined") {

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import PostDetails from "../Components/PostDetails";
 import { uploadCloudinary } from "@/utils/upload";
-import redirToSignInIfNoToken from "@/utils/auth";
+import {redirToSignInIfNoToken} from "@/utils/auth";
 
 const page = () => {
   redirToSignInIfNoToken();
