@@ -1,7 +1,7 @@
 import React from 'react'
 import "remixicon/fonts/remixicon.css";
 import Link from 'next/link';
-import redirToSignInIfNoToken from '@/utils/auth';
+import {redirToSignInIfNoToken} from '@/utils/auth';
 const page = () => {
   redirToSignInIfNoToken();
   return (
