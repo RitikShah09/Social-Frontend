@@ -21,7 +21,7 @@ const page = () => {
   }, [images]);
   const handlerSubmit = async () => {
     try {
-      for (let i = 0; i < images.length; i++) {
+      for (let i = 0; i < images?.length; i++) {
         const data = await uploadCloudinary(images[i]);
         const public_id = data.publicId;
         const updateData = { Image: data.url, public_id };
