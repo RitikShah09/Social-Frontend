@@ -1,19 +1,21 @@
-'use client';
-import Nav from '../Shared/Nav';
+"use client";
+import Nav from "../Shared/Nav";
 import "remixicon/fonts/remixicon.css";
 import { UserContext } from "../Context/UserContext";
 import { useContext, useState, useEffect } from "react";
-import { makeAuthenticatedGETRequest, makeAuthenticatedPOSTRequest } from '@/utils/serverHelper';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import PostDetails from '../Components/PostDetails';
+import {
+  makeAuthenticatedGETRequest,
+  makeAuthenticatedPOSTRequest,
+} from "@/utils/serverHelper";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import PostDetails from "../Components/PostDetails";
 import { uploadCloudinary } from "@/utils/upload";
 import redirToSignInIfNoToken from "@/utils/auth";
 
 const page = () => {
   redirToSignInIfNoToken();
   const [images, setImages] = useState([]);
-  const [data, setData] = useState();
   const router = useRouter();
   useEffect(() => {
     handlerSubmit();
@@ -38,12 +40,11 @@ const page = () => {
   const selectBtn = () => {
     document.querySelector(".file").click();
   };
-  console.log(data);
   const [postOpen, setPostOpen] = useState(false);
   const [postDet, setPostDet] = useState([]);
   const [user, setUser] = useContext(UserContext);
   const [postData, setPostData] = useState([]);
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const getData = async () => {
       const response = await makeAuthenticatedGETRequest("/post/mypost");
@@ -51,8 +52,6 @@ const page = () => {
     };
     getData();
   }, [user]);
-
-  
 
   return (
     <div className="h-screen w-full flex sm:flex-col-reverse">
@@ -151,14 +150,14 @@ const page = () => {
             </div>
             <div className="flex items-center gap-5 text-white font-medium">
               <h4 className="flex flex-col items-center">
-                <span>{user?.posts.length}</span> Posts
+                <span>{user?.posts?.length}</span> Posts
               </h4>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user?.follower.length}</span>
+                <span>{user?.follower?.length}</span>
                 Followers
               </div>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user?.following.length}</span> Following
+                <span>{user?.following?.length}</span> Following
               </div>
             </div>
           </div>
@@ -205,13 +204,13 @@ const page = () => {
             </div>
             <div className="flex items-center gap-4 text-white font-medium">
               <h4>
-                <span>{user?.posts.length}</span> Posts
+                <span>{user?.posts?.length}</span> Posts
               </h4>
               <h4>
-                <span>{user?.follower.length}</span> Followers
+                <span>{user?.follower?.length}</span> Followers
               </h4>
               <h4>
-                <span>{user?.following.length}</span> Following
+                <span>{user?.following?.length}</span> Following
               </h4>
             </div>
             <div className=" overflow-hidden h-32 w-44 text-white text-left sm:hidden">
@@ -255,6 +254,6 @@ const page = () => {
       </div>
     </div>
   );
-}
+};
 
 export default page;
