@@ -1,4 +1,4 @@
-'use client'
+
 import { useCookies } from "react-cookie";
 import { redirect } from "next/navigation";
 
