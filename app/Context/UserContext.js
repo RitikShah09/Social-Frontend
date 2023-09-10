@@ -6,19 +6,21 @@ export const UserContext = createContext({});
 
 
 export default function UserProvider({ children }) {
-    let initialState = null;
-
+  let initialState = null;
+  useEffect(() => {
     if (typeof window !== "undefined") {
-       const getLocalData = () => {
-         let userData = localStorage.getItem("UserDetails");
-         if (userData == {}) {
-           return {};
-         } else {
-           return JSON.parse(userData);
-         }
-       };
-       initialState = getLocalData();
+      const getLocalData = () => {
+        let userData = localStorage.getItem("UserDetails");
+        if (userData == {}) {
+          return {};
+        } else {
+          return JSON.parse(userData);
+        }
+      };
+      initialState = getLocalData();
     }
+  },[])
+    
 
     const [user, setUser] = useState(initialState);
     
