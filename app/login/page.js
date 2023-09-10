@@ -7,7 +7,9 @@ import { makeUnauthenticatedPOSTRequest } from '@/utils/serverHelper';
 import { useRouter } from 'next/navigation';
 import { UserContext } from '../Context/UserContext';
 import { useContext } from 'react';
+import { redirectToHome } from '@/utils/auth';
 const page = () => {
+  redirectToHome();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -75,7 +77,7 @@ const page = () => {
             </Link> */}
             <h5 className=" text-base">
               Don't have an account?
-              <Link className=" no-underline text-[#5851DB] font-medium" href="/signup">
+              <Link className=" no-underline text-[#5851DB] font-medium" href="/">
                 SignUp
               </Link>
             </h5>
