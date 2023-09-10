@@ -12,7 +12,7 @@ import Link from "next/link";
 import PostDetails from "../Components/PostDetails";
 import { uploadCloudinary } from "@/utils/upload";
 import Showfollower from "../Components/Showfollower";
-import redirToSignInIfNoToken from "@/utils/auth";
+import {redirToSignInIfNoToken} from "@/utils/auth";
 const page = () => {
   redirToSignInIfNoToken();
   const router = useRouter();

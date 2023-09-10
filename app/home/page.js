@@ -8,7 +8,7 @@ import { makeAuthenticatedGETRequest } from '@/utils/serverHelper';
 import { UserContext } from "../Context/UserContext";
 import PostDetails from "../Components/PostDetails";
 import More from "../Components/More";
-import {redirToSignInIfNoToken} from "@/utils/auth";
+import { redirToSignInIfNoToken } from "@/utils/auth";
 const page = () => {
   redirToSignInIfNoToken();
   const [moreOpen, setMoreOpen] = useState(false);

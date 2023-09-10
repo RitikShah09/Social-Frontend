@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "../Context/UserContext";
 import { makeAuthenticatedPOSTRequest } from "@/utils/serverHelper";
 import { uploadCloudinary } from "@/utils/upload";
-import redirToSignInIfNoToken from "@/utils/auth";
+import {redirToSignInIfNoToken} from "@/utils/auth";
 
 const page = () => {
   redirToSignInIfNoToken();
