@@ -8,10 +8,10 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "./Context/UserContext";
 import { useContext } from "react";
 import { makeUnauthenticatedPOSTRequest } from "@/utils/serverHelper";
-import { redirectToHome } from "@/utils/auth";
+// import { redirectToHome } from "@/utils/auth";
 
 const page = () => {
-  redirectToHome();
+  // redirectToHome();
   const [user, setUser] = useContext(UserContext);
   const router = useRouter();
   const [email, setEmail] = useState("");
