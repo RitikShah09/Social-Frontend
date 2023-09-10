@@ -7,8 +7,6 @@ import { makeUnauthenticatedPOSTRequest } from '@/utils/serverHelper';
 import { useRouter } from 'next/navigation';
 import { UserContext } from '../Context/UserContext';
 import { useContext } from 'react';
-import { redirectToHome } from "@/utils/auth";
-
 const page = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");

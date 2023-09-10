@@ -8,13 +8,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import PostDetails from '../Components/PostDetails';
 import { uploadCloudinary } from "@/utils/upload";
-import Showfollower from '../Components/Showfollower';
 import redirToSignInIfNoToken from "@/utils/auth";
 
 const page = () => {
   redirToSignInIfNoToken();
   const [images, setImages] = useState([]);
-  const [ShowFollow, setShowFollow] = useState(false);
   const [data, setData] = useState();
   const router = useRouter();
   useEffect(() => {
@@ -121,7 +119,7 @@ const page = () => {
       <div className=" w-12/13 h-full bg-black no-scrollbar overflow-auto sm:w-full sm:h-[90%]">
         <div className="flex pl-40 items-center gap-14 w-full sm:px-5 py-5 sm:flex-col sm:gap-0 sm:items-start">
           <div className="w-full font-medium text-white pb-2 sm:flex hidden justify-between items-center">
-            <div>{user.username}</div>
+            <div>{user?.username}</div>
             <div className="flex items-center space-x-3 text-3xl">
               <div>
                 <i
@@ -140,7 +138,7 @@ const page = () => {
             >
               <img
                 className="h-full w-full object-cover cursor-pointer"
-                src={user.Image}
+                src={user?.Image}
                 alt="Profile"
               />
               <input
@@ -153,20 +151,20 @@ const page = () => {
             </div>
             <div className="flex items-center gap-5 text-white font-medium">
               <h4 className="flex flex-col items-center">
-                <span>{user.posts.length}</span> Posts
+                <span>{user?.posts.length}</span> Posts
               </h4>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user.follower.length}</span>
+                <span>{user?.follower.length}</span>
                 Followers
               </div>
               <div className="flex flex-col items-center cursor-pointer">
-                <span>{user.following.length}</span> Following
+                <span>{user?.following.length}</span> Following
               </div>
             </div>
           </div>
           <div className="text-white w-2/3 mt-2 sm:flex sm:flex-col hidden ">
-            <div>{user.name}</div>
-            <div className=" max-h-15">{user.bio}</div>
+            <div>{user?.name}</div>
+            <div className=" max-h-15">{user?.bio}</div>
           </div>
           <Link
             href="/edit"
@@ -180,7 +178,7 @@ const page = () => {
           >
             <img
               className="h-full w-full object-cover cursor-pointer"
-              src={user.Image}
+              src={user?.Image}
               alt="Profile"
             />
             <input
@@ -193,7 +191,7 @@ const page = () => {
           </div>
           <div className="flex items-right h-full ml-10 pt-10 gap-3 text-white flex-col justify-center sm:hidden">
             <div className="flex items-center gap-12 sm:hidden">
-              <h3>{user.username}</h3>
+              <h3>{user?.username}</h3>
               <div className="flex items-center gap-4">
                 <Link href="/edit">
                   <button className="px-4 py-1 rounded-lg text-black font-medium border-none bg-gray-200">
@@ -207,19 +205,19 @@ const page = () => {
             </div>
             <div className="flex items-center gap-4 text-white font-medium">
               <h4>
-                <span>{user.posts.length}</span> Posts
+                <span>{user?.posts.length}</span> Posts
               </h4>
               <h4>
-                <span>{user.follower.length}</span> Followers
+                <span>{user?.follower.length}</span> Followers
               </h4>
               <h4>
-                <span>{user.following.length}</span> Following
+                <span>{user?.following.length}</span> Following
               </h4>
             </div>
             <div className=" overflow-hidden h-32 w-44 text-white text-left sm:hidden">
-              <span className="font-medium text-base">{user.name}</span>
+              <span className="font-medium text-base">{user?.name}</span>
               <br />
-              <h3 className="text-sm font-thin">{user.bio}</h3>
+              <h3 className="text-sm font-thin">{user?.bio}</h3>
             </div>
           </div>
         </div>

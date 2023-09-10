@@ -87,7 +87,7 @@ const Nav = ({postOpen}) => {
           >
             <img
               className="h-7 w-7 rounded-full object-cover"
-              src={user.Image}
+              src={user?.Image}
               alt=""
             />
           </Link>

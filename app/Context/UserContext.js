@@ -21,9 +21,12 @@ export default function UserProvider({ children }) {
     }
 
     const [user, setUser] = useState(initialState);
-    useEffect(() => {
-      localStorage.setItem("UserDetails", JSON.stringify(user));
-    }, [user]);
+    
+    if (typeof window !== "undefined") {
+        useEffect(() => {
+          localStorage.setItem("UserDetails", JSON.stringify(user));
+        }, [user]);
+   }
     
      return (
          <UserContext.Provider value={[user, setUser]}>{children}</UserContext.Provider>

@@ -9,8 +9,7 @@ export default function redirToSignInIfNoToken() {
       return redirect("/login");
     }
   }
-}
- 
+} 
 
 export const redirectToHome = () => {
   if (typeof window !== "undefined") {
