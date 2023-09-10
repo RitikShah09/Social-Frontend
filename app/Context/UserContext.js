@@ -6,18 +6,18 @@ export const UserContext = createContext({});
 
 
 export default function UserProvider({ children }) {
-
-    const getLocalData = () => {
-        let userData = localStorage.getItem("UserDetails");
-        if (userData === {}) {
-            return {}
-        }
-        else {
-            return JSON.parse(userData);
-        }
-    };
-
-    const initialState = getLocalData();
+    const initialState = null;
+    useEffect(() => {
+        const getLocalData = () => {
+            let userData = localStorage.getItem("UserDetails");
+            if (userData == {}) {
+                return {};
+            } else {
+                return JSON.parse(userData);
+            }
+        };
+        initialState = getLocalData();
+    }, []);
 
     const [user, setUser] = useState(initialState);
     useEffect(() => {
